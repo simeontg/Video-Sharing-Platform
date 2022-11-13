@@ -6,6 +6,7 @@ import Link from 'next/link'
 import {HiVolumeUp, HiVolumeOff} from 'react-icons/hi'
 import {BsFillPlayFill, BsFillPauseFill, BsPlay} from 'react-icons/bs'
 import {GoVerified} from 'react-icons/go'
+import { BASE_URL } from '../utils'
 
 
 
@@ -44,14 +45,14 @@ const VideoCard: NextPage<IProps> = ({post}) => {
         <div>
             <div className='flex gap-3 padding-2 cursor-pointer font-semibold rounded'>
                 <div className='md:w-16 md:h-16 w-10 h-10'>
-                    <Link href='/'>
+                    <Link href={`/profile/${post.postedBy._id}`}>
                         <>
                         <Image width={62} height={62} className='rounded-full' src={post.postedBy?.image} alt='profile-picture' layout='responsive'/>
                         </>
                     </Link>
                 </div>
                 <div>
-                    <Link href='/'>
+                    <Link href={`/profile/${post.postedBy._id}`}>
                         <div className='flex items-center gap-2'>
                             <p className='flex gap-2 items-center md:text-md font-bold text-primary'>
                                 {post.postedBy.userName} {``}
